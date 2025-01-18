@@ -7,7 +7,7 @@
 
 import Combine
 
-class UserDetailViewModel: ObservableObject {
+final class UserDetailViewModel: ObservableObject {
     @Published var userDetail: UserDetail?
     @Published var isLoading = false
     @Published var error: Error?

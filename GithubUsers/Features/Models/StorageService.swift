@@ -71,7 +71,6 @@ final class StorageService: StorageServiceProtocol {
     }
 }
 
-
 private struct CacheObject: Codable {
     let data: Data
     let timestamp: Date
