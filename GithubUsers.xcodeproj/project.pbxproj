@@ -32,6 +32,8 @@
 		C19AD8062D3BB2E100BA0FD0 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */; };
 		C19AD8082D3BCC1A00BA0FD0 /* StatisticInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8072D3BCC1A00BA0FD0 /* StatisticInfoView.swift */; };
 		C19AD80A2D3BCC7500BA0FD0 /* BlogInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8092D3BCC7500BA0FD0 /* BlogInfoView.swift */; };
+		C19AD80C2D3BF28600BA0FD0 /* DefaultTimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */; };
+		C19AD80E2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		C19AD8072D3BCC1A00BA0FD0 /* StatisticInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticInfoView.swift; sourceTree = "<group>"; };
 		C19AD8092D3BCC7500BA0FD0 /* BlogInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInfoView.swift; sourceTree = "<group>"; };
+		C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTimeProvider.swift; sourceTree = "<group>"; };
+		C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeProviderProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 		C19AD7DA2D3B75E700BA0FD0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */,
 				C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */,
 				C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */,
 				C19AD7F82D3B9D5500BA0FD0 /* StorageService.swift */,
@@ -214,6 +219,7 @@
 		C19AD7DB2D3B75FE00BA0FD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */,
 				C19AD7FE2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift */,
 				C19AD7F42D3B9C9400BA0FD0 /* URLSessionProtocol.swift */,
 			);
@@ -404,6 +410,7 @@
 				C19AD7F12D3B9C6200BA0FD0 /* NetworkService.swift in Sources */,
 				C19AD7E62D3B78FE00BA0FD0 /* PreviewData.swift in Sources */,
 				C19AD7E22D3B787800BA0FD0 /* UserCardView.swift in Sources */,
+				C19AD80C2D3BF28600BA0FD0 /* DefaultTimeProvider.swift in Sources */,
 				C19AD8082D3BCC1A00BA0FD0 /* StatisticInfoView.swift in Sources */,
 				C19AD7FB2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift in Sources */,
 				C19AD7F32D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift in Sources */,
@@ -413,6 +420,7 @@
 				C19AD8022D3B9E9000BA0FD0 /* UsersViewModel.swift in Sources */,
 				C19AD7F72D3B9CDF00BA0FD0 /* URLSession+Extensions.swift in Sources */,
 				C17F21FC2D3B71C900DFC011 /* GithubUsersApp.swift in Sources */,
+				C19AD80E2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
