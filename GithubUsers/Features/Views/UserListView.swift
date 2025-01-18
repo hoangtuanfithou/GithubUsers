@@ -8,26 +8,52 @@
 import SwiftUI
 
 struct UserListView: View {
+    @StateObject private var viewModel = UsersViewModel()
+    
     var body: some View {
-        NavigationStack {
-            List(1...6, id: \.self) { _ in
-                HStack(spacing: 0) {
-                    UserCardView(
-                        avatarUrl: User.sample.avatarUrl,
-                        userName: User.sample.login,
-                        landingPageUrl: User.sample.htmlUrl
-                    )
-                    
-                    NavigationLink(destination: UserDetailView(user: .sample)) {
-                        EmptyView()
+        NavigationView {
+            List {
+                ForEach(viewModel.users) { user in
+                    HStack(spacing: 0) {
+                        UserCardView(
+                            avatarUrl: user.avatarUrl,
+                            userName: user.login,
+                            landingPageUrl: user.htmlUrl
+                        )
+                        
+                        NavigationLink(destination: UserDetailView(user: user)) {
+                            EmptyView()
+                        }
+                        .frame(width: 0)
+                        .opacity(0)
                     }
-                    .frame(width: 0)
-                    .opacity(0)
                 }
                 .listRowSeparator(.hidden)
+                
+                // Load more
+                if !viewModel.users.isEmpty {
+                    ProgressView()
+                        .onAppear {
+                            Task {
+                                await viewModel.loadMoreUsers()
+                            }
+                        }
+                }
             }
             .listStyle(.plain)
             .navigationTitle("Github Users")
+            .task {
+                if viewModel.users.isEmpty {
+                    await viewModel.loadMoreUsers()
+                }
+            }
+            .alert("Error", isPresented: .constant(viewModel.error != nil)) {
+                Button("OK") {
+                    viewModel.error = nil
+                }
+            } message: {
+                Text(viewModel.error?.localizedDescription ?? "Unknown error")
+            }
         }
     }
 }

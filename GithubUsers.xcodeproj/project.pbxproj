@@ -19,6 +19,17 @@
 		C19AD7E62D3B78FE00BA0FD0 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7E52D3B78F700BA0FD0 /* PreviewData.swift */; };
 		C19AD7E82D3B7A8000BA0FD0 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7E72D3B7A8000BA0FD0 /* UserDetailView.swift */; };
 		C19AD7EA2D3B7CD600BA0FD0 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7E92D3B7CD600BA0FD0 /* UserDetail.swift */; };
+		C19AD7F12D3B9C6200BA0FD0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7F02D3B9C6200BA0FD0 /* NetworkService.swift */; };
+		C19AD7F32D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */; };
+		C19AD7F52D3B9C9400BA0FD0 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7F42D3B9C9400BA0FD0 /* URLSessionProtocol.swift */; };
+		C19AD7F72D3B9CDF00BA0FD0 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7F62D3B9CDF00BA0FD0 /* URLSession+Extensions.swift */; };
+		C19AD7F92D3B9D5500BA0FD0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7F82D3B9D5500BA0FD0 /* StorageService.swift */; };
+		C19AD7FB2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */; };
+		C19AD7FD2D3B9DAE00BA0FD0 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7FC2D3B9DAE00BA0FD0 /* UserDefaults+Extensions.swift */; };
+		C19AD7FF2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD7FE2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift */; };
+		C19AD8022D3B9E9000BA0FD0 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8012D3B9E9000BA0FD0 /* UsersViewModel.swift */; };
+		C19AD8042D3BB12200BA0FD0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8032D3BB12200BA0FD0 /* Constants.swift */; };
+		C19AD8062D3BB2E100BA0FD0 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +66,17 @@
 		C19AD7E52D3B78F700BA0FD0 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		C19AD7E72D3B7A8000BA0FD0 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		C19AD7E92D3B7CD600BA0FD0 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		C19AD7F02D3B9C6200BA0FD0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		C19AD7F42D3B9C9400BA0FD0 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		C19AD7F62D3B9CDF00BA0FD0 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
+		C19AD7F82D3B9D5500BA0FD0 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
+		C19AD7FC2D3B9DAE00BA0FD0 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		C19AD7FE2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		C19AD8012D3B9E9000BA0FD0 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		C19AD8032D3BB12200BA0FD0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +166,7 @@
 		C19AD7D72D3B75AF00BA0FD0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD8002D3B9E8C00BA0FD0 /* ViewModels */,
 				C19AD7DB2D3B75FE00BA0FD0 /* Protocols */,
 				C19AD7DA2D3B75E700BA0FD0 /* Models */,
 				C19AD7D82D3B75BF00BA0FD0 /* Views */,
@@ -172,6 +195,10 @@
 		C19AD7DA2D3B75E700BA0FD0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */,
+				C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */,
+				C19AD7F82D3B9D5500BA0FD0 /* StorageService.swift */,
+				C19AD7F02D3B9C6200BA0FD0 /* NetworkService.swift */,
 				C19AD7E32D3B789600BA0FD0 /* User.swift */,
 				C19AD7E92D3B7CD600BA0FD0 /* UserDetail.swift */,
 			);
@@ -181,6 +208,8 @@
 		C19AD7DB2D3B75FE00BA0FD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD7FE2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift */,
+				C19AD7F42D3B9C9400BA0FD0 /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -197,6 +226,7 @@
 		C19AD7DD2D3B761400BA0FD0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD8032D3BB12200BA0FD0 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -204,6 +234,8 @@
 		C19AD7DE2D3B770E00BA0FD0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD7FC2D3B9DAE00BA0FD0 /* UserDefaults+Extensions.swift */,
+				C19AD7F62D3B9CDF00BA0FD0 /* URLSession+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +246,15 @@
 				C17F21FB2D3B71C900DFC011 /* GithubUsersApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		C19AD8002D3B9E8C00BA0FD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C19AD8012D3B9E9000BA0FD0 /* UsersViewModel.swift */,
+				C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,12 +387,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19AD8062D3BB2E100BA0FD0 /* UserDetailViewModel.swift in Sources */,
+				C19AD7F52D3B9C9400BA0FD0 /* URLSessionProtocol.swift in Sources */,
+				C19AD8042D3BB12200BA0FD0 /* Constants.swift in Sources */,
+				C19AD7F92D3B9D5500BA0FD0 /* StorageService.swift in Sources */,
 				C19AD7E02D3B77E100BA0FD0 /* UserListView.swift in Sources */,
 				C19AD7EA2D3B7CD600BA0FD0 /* UserDetail.swift in Sources */,
+				C19AD7FF2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift in Sources */,
+				C19AD7F12D3B9C6200BA0FD0 /* NetworkService.swift in Sources */,
 				C19AD7E62D3B78FE00BA0FD0 /* PreviewData.swift in Sources */,
 				C19AD7E22D3B787800BA0FD0 /* UserCardView.swift in Sources */,
+				C19AD7FB2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift in Sources */,
+				C19AD7F32D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift in Sources */,
+				C19AD7FD2D3B9DAE00BA0FD0 /* UserDefaults+Extensions.swift in Sources */,
 				C19AD7E42D3B789600BA0FD0 /* User.swift in Sources */,
 				C19AD7E82D3B7A8000BA0FD0 /* UserDetailView.swift in Sources */,
+				C19AD8022D3B9E9000BA0FD0 /* UsersViewModel.swift in Sources */,
+				C19AD7F72D3B9CDF00BA0FD0 /* URLSession+Extensions.swift in Sources */,
 				C17F21FC2D3B71C900DFC011 /* GithubUsersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

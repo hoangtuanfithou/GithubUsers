@@ -5,7 +5,7 @@
 //  Created by Tuan on 2025/01/18.
 //
 
-struct User: Codable, Identifiable, Equatable {
+struct User: Codable, Identifiable, Equatable, Hashable {
     let id: Int
     let login: String
     let avatarUrl: String
