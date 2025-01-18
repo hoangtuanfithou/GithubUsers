@@ -7,6 +7,6 @@
 
 struct Constants {
     static let baseURL = "https://api.github.com"
-    static let token = "your_token_here"
+    static let token = "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"
     static let pageSize = 20
 }
