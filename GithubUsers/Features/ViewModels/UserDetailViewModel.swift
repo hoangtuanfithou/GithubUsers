@@ -25,11 +25,10 @@ final class UserDetailViewModel: ObservableObject {
     func loadUserDetail(username: String) async {
         isLoading = true
         
+        defer { isLoading = false }
         // Try to load from cache first
         if let cached = try? storageService.getUserDetail(forUsername: username) {
             userDetail = cached
-            isLoading = false
-            return
         }
         
         do {
@@ -39,6 +38,5 @@ final class UserDetailViewModel: ObservableObject {
         } catch {
             self.error = error
         }
-        isLoading = false
     }
 }

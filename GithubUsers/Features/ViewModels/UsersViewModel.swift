@@ -7,7 +7,7 @@
 
 import Combine
 
-class UsersViewModel: ObservableObject {
+final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     @Published var isLoading = false
     @Published var error: Error?
@@ -35,6 +35,7 @@ class UsersViewModel: ObservableObject {
         guard !isLoading else { return }
         
         isLoading = true
+        defer { isLoading = false }
         do {
             let newUsers = try await networkService.fetchUsers(since: users.last?.id ?? 0)
             
@@ -46,6 +47,5 @@ class UsersViewModel: ObservableObject {
         } catch {
             self.error = error
         }
-        isLoading = false
     }
 }

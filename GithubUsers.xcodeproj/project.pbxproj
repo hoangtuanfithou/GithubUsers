@@ -34,6 +34,15 @@
 		C19AD80A2D3BCC7500BA0FD0 /* BlogInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8092D3BCC7500BA0FD0 /* BlogInfoView.swift */; };
 		C19AD80C2D3BF28600BA0FD0 /* DefaultTimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */; };
 		C19AD80E2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */; };
+		C19AD8132D3BF65A00BA0FD0 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8122D3BF65A00BA0FD0 /* StorageServiceTests.swift */; };
+		C19AD8152D3BF7E000BA0FD0 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8142D3BF7E000BA0FD0 /* MockData.swift */; };
+		C19AD8172D3BF81700BA0FD0 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8162D3BF81700BA0FD0 /* MockUserDefaults.swift */; };
+		C19AD8192D3BF86D00BA0FD0 /* MockTimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8182D3BF86D00BA0FD0 /* MockTimeProvider.swift */; };
+		C19AD81B2D3BFD8C00BA0FD0 /* UsersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD81A2D3BFD8C00BA0FD0 /* UsersViewModelTests.swift */; };
+		C19AD81D2D3BFF3000BA0FD0 /* MockStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD81C2D3BFF3000BA0FD0 /* MockStorageService.swift */; };
+		C19AD81F2D3BFF4600BA0FD0 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD81E2D3BFF4600BA0FD0 /* MockNetworkService.swift */; };
+		C19AD8212D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8202D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift */; };
+		C19AD8232D3C039F00BA0FD0 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8222D3C039F00BA0FD0 /* TestError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +94,16 @@
 		C19AD8092D3BCC7500BA0FD0 /* BlogInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInfoView.swift; sourceTree = "<group>"; };
 		C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTimeProvider.swift; sourceTree = "<group>"; };
 		C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeProviderProtocol.swift; sourceTree = "<group>"; };
+		C19AD8122D3BF65A00BA0FD0 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
+		C19AD8142D3BF7E000BA0FD0 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		C19AD8162D3BF81700BA0FD0 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		C19AD8182D3BF86D00BA0FD0 /* MockTimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimeProvider.swift; sourceTree = "<group>"; };
+		C19AD81A2D3BFD8C00BA0FD0 /* UsersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTests.swift; sourceTree = "<group>"; };
+		C19AD81C2D3BFF3000BA0FD0 /* MockStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageService.swift; sourceTree = "<group>"; };
+		C19AD81E2D3BFF4600BA0FD0 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		C19AD8202D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C19AD8222D3C039F00BA0FD0 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		C19AD8242D3C0C6E00BA0FD0 /* GithubUsers.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubUsers.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +134,7 @@
 		C17F21EF2D3B71C900DFC011 = {
 			isa = PBXGroup;
 			children = (
+				C19AD8242D3C0C6E00BA0FD0 /* GithubUsers.xctestplan */,
 				C17F21FA2D3B71C900DFC011 /* GithubUsers */,
 				C17F220C2D3B71CA00DFC011 /* GithubUsersTests */,
 				C17F22162D3B71CA00DFC011 /* GithubUsersUITests */,
@@ -157,6 +177,9 @@
 		C17F220C2D3B71CA00DFC011 /* GithubUsersTests */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD80F2D3BF55400BA0FD0 /* Mocks */,
+				C19AD8112D3BF59C00BA0FD0 /* ViewModels */,
+				C19AD8102D3BF59400BA0FD0 /* Models */,
 				C17F220D2D3B71CA00DFC011 /* GithubUsersTests.swift */,
 			);
 			path = GithubUsersTests;
@@ -206,8 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				C19AD80B2D3BF28600BA0FD0 /* DefaultTimeProvider.swift */,
-				C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */,
-				C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */,
 				C19AD7F82D3B9D5500BA0FD0 /* StorageService.swift */,
 				C19AD7F02D3B9C6200BA0FD0 /* NetworkService.swift */,
 				C19AD7E32D3B789600BA0FD0 /* User.swift */,
@@ -219,6 +240,8 @@
 		C19AD7DB2D3B75FE00BA0FD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C19AD7FA2D3B9D7300BA0FD0 /* StorageServiceProtocol.swift */,
+				C19AD7F22D3B9C6F00BA0FD0 /* NetworkServiceProtocol.swift */,
 				C19AD80D2D3BF29D00BA0FD0 /* TimeProviderProtocol.swift */,
 				C19AD7FE2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift */,
 				C19AD7F42D3B9C9400BA0FD0 /* URLSessionProtocol.swift */,
@@ -265,6 +288,36 @@
 			children = (
 				C19AD8012D3B9E9000BA0FD0 /* UsersViewModel.swift */,
 				C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C19AD80F2D3BF55400BA0FD0 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C19AD8222D3C039F00BA0FD0 /* TestError.swift */,
+				C19AD8142D3BF7E000BA0FD0 /* MockData.swift */,
+				C19AD81E2D3BFF4600BA0FD0 /* MockNetworkService.swift */,
+				C19AD81C2D3BFF3000BA0FD0 /* MockStorageService.swift */,
+				C19AD8162D3BF81700BA0FD0 /* MockUserDefaults.swift */,
+				C19AD8182D3BF86D00BA0FD0 /* MockTimeProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C19AD8102D3BF59400BA0FD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C19AD8122D3BF65A00BA0FD0 /* StorageServiceTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C19AD8112D3BF59C00BA0FD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C19AD8202D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift */,
+				C19AD81A2D3BFD8C00BA0FD0 /* UsersViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -428,6 +481,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19AD81F2D3BFF4600BA0FD0 /* MockNetworkService.swift in Sources */,
+				C19AD81B2D3BFD8C00BA0FD0 /* UsersViewModelTests.swift in Sources */,
+				C19AD8192D3BF86D00BA0FD0 /* MockTimeProvider.swift in Sources */,
+				C19AD8212D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift in Sources */,
+				C19AD8132D3BF65A00BA0FD0 /* StorageServiceTests.swift in Sources */,
+				C19AD81D2D3BFF3000BA0FD0 /* MockStorageService.swift in Sources */,
+				C19AD8232D3C039F00BA0FD0 /* TestError.swift in Sources */,
+				C19AD8152D3BF7E000BA0FD0 /* MockData.swift in Sources */,
+				C19AD8172D3BF81700BA0FD0 /* MockUserDefaults.swift in Sources */,
 				C17F220E2D3B71CA00DFC011 /* GithubUsersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

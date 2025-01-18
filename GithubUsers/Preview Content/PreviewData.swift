@@ -24,6 +24,4 @@ extension UserDetail {
         followers: 1000,
         following: 1000
     )
-    
 }
-        

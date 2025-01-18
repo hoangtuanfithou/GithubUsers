@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserDetailView: View {
+    // Todo: use user object to display user while calling API to get user detail
     let user: User
     @StateObject private var viewModel = UserDetailViewModel()
     
