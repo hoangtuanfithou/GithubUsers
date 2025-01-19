@@ -27,4 +27,3 @@ protocol StorageServiceProtocol {
     /// - Throws: An error if the user detail could not be retrieved.
     func getUserDetail(forUsername username: String) throws -> UserDetail?
 }
-
