@@ -24,6 +24,7 @@ final class UsersViewModel: ObservableObject {
     
     private func loadCachedUsers() {
         do {
+            // Todo: Handle caching time for cached data
             users = try storageService.getUsers()
         } catch {
             self.error = error
@@ -44,6 +45,23 @@ final class UsersViewModel: ObservableObject {
             users.append(contentsOf: newUsers.filter { !existingIDs.contains($0.id) })
             
             try storageService.saveUsers(users)
+        } catch {
+            self.error = error
+        }
+    }
+    
+    @MainActor
+    func refresh() async {
+        guard !isLoading else { return }
+        
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            let newUsers = try await networkService.fetchUsers(since: 0)
+            users = newUsers
+            try storageService.saveUsers(users)
+            error = nil
         } catch {
             self.error = error
         }

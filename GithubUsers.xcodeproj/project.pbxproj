@@ -43,6 +43,7 @@
 		C19AD81F2D3BFF4600BA0FD0 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD81E2D3BFF4600BA0FD0 /* MockNetworkService.swift */; };
 		C19AD8212D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8202D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift */; };
 		C19AD8232D3C039F00BA0FD0 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8222D3C039F00BA0FD0 /* TestError.swift */; };
+		C19AD8262D3CAA3A00BA0FD0 /* UserDisplayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD8252D3CAA3A00BA0FD0 /* UserDisplayInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		C19AD8202D3BFFF400BA0FD0 /* UserDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelTests.swift; sourceTree = "<group>"; };
 		C19AD8222D3C039F00BA0FD0 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		C19AD8242D3C0C6E00BA0FD0 /* GithubUsers.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubUsers.xctestplan; sourceTree = "<group>"; };
+		C19AD8252D3CAA3A00BA0FD0 /* UserDisplayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisplayInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 			children = (
 				C19AD8012D3B9E9000BA0FD0 /* UsersViewModel.swift */,
 				C19AD8052D3BB2E100BA0FD0 /* UserDetailViewModel.swift */,
+				C19AD8252D3CAA3A00BA0FD0 /* UserDisplayInfo.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				C19AD7FF2D3B9DC000BA0FD0 /* UserDefaultsProtocol.swift in Sources */,
 				C19AD7F12D3B9C6200BA0FD0 /* NetworkService.swift in Sources */,
 				C19AD7E62D3B78FE00BA0FD0 /* PreviewData.swift in Sources */,
+				C19AD8262D3CAA3A00BA0FD0 /* UserDisplayInfo.swift in Sources */,
 				C19AD7E22D3B787800BA0FD0 /* UserCardView.swift in Sources */,
 				C19AD80C2D3BF28600BA0FD0 /* DefaultTimeProvider.swift in Sources */,
 				C19AD8082D3BCC1A00BA0FD0 /* StatisticInfoView.swift in Sources */,
@@ -654,10 +658,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tom.GithubUsers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -690,10 +694,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tom.GithubUsers;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -8,32 +8,40 @@
 import Combine
 
 final class UserDetailViewModel: ObservableObject {
-    @Published var userDetail: UserDetail?
+    // Published properties
+    @Published private(set) var displayUser: UserDisplayInfo
     @Published var isLoading = false
     @Published var error: Error?
+    @Published private(set) var hasFullDetails = false
     
     private let networkService: NetworkServiceProtocol
     private let storageService: StorageServiceProtocol
     
-    init(networkService: NetworkServiceProtocol = NetworkService(),
-         storageService: StorageServiceProtocol = StorageService()) {
+    init(
+        initialUser: User,
+        networkService: NetworkServiceProtocol = NetworkService(),
+        storageService: StorageServiceProtocol = StorageService()
+    ) {
+        self.displayUser = UserDisplayInfo(from: initialUser)
         self.networkService = networkService
         self.storageService = storageService
     }
     
     @MainActor
-    func loadUserDetail(username: String) async {
+    func loadUserDetail() async {
         isLoading = true
         
         defer { isLoading = false }
         // Try to load from cache first
-        if let cached = try? storageService.getUserDetail(forUsername: username) {
-            userDetail = cached
+        if let cached = try? storageService.getUserDetail(forUsername: displayUser.login) {
+            displayUser = UserDisplayInfo(from: cached)
+            hasFullDetails = true
         }
         
         do {
-            let detail = try await networkService.fetchUserDetail(username: username)
-            userDetail = detail
+            let detail = try await networkService.fetchUserDetail(username: displayUser.login)
+            displayUser = UserDisplayInfo(from: detail)
+            hasFullDetails = true
             try storageService.saveUserDetail(detail)
         } catch {
             self.error = error

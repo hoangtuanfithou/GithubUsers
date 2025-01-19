@@ -10,16 +10,19 @@ import Combine
 @testable import GithubUsers
 
 final class UserDetailViewModelTests: XCTestCase {
-    var sut: UserDetailViewModel!
-    var mockNetworkService: MockNetworkService!
-    var mockStorageService: MockStorageService!
-    var cancellables: Set<AnyCancellable>!
+    private var sut: UserDetailViewModel!
+    private var mockNetworkService: MockNetworkService!
+    private var mockStorageService: MockStorageService!
+    private var cancellables: Set<AnyCancellable>!
+    private var initialUser: User!
     
     override func setUp() {
         super.setUp()
+        initialUser = User.mock()
         mockNetworkService = MockNetworkService()
         mockStorageService = MockStorageService()
         sut = UserDetailViewModel(
+            initialUser: initialUser,
             networkService: mockNetworkService,
             storageService: mockStorageService
         )
@@ -27,6 +30,7 @@ final class UserDetailViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
+        initialUser = nil
         cancellables = nil
         mockNetworkService = nil
         mockStorageService = nil
@@ -43,13 +47,13 @@ final class UserDetailViewModelTests: XCTestCase {
         mockStorageService.cachedUserDetail = cachedDetail
         mockNetworkService.userDetail = networkDetail
         
-        var userDetailUpdates: [UserDetail?] = []
+        var userDetailUpdates: [UserDisplayInfo?] = []
         
         let expectUpdates = expectation(description: "User detail updates")
         expectUpdates.expectedFulfillmentCount = 2 // Expect both cache and network updates
         
-        sut.$userDetail
-            .dropFirst() // Drop initial nil
+        sut.$displayUser
+            .dropFirst() // Drop initial user
             .sink { detail in
                 userDetailUpdates.append(detail)
                 expectUpdates.fulfill()
@@ -57,7 +61,7 @@ final class UserDetailViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // When
-        await sut.loadUserDetail(username: "Cached User")
+        await sut.loadUserDetail()
         
         // Then
         await fulfillment(of: [expectUpdates], timeout: 1.0)
@@ -68,9 +72,10 @@ final class UserDetailViewModelTests: XCTestCase {
         XCTAssertEqual(userDetailUpdates[1]?.login, "Network User")
         XCTAssertFalse(sut.isLoading)
         XCTAssertNil(sut.error)
-        
+        XCTAssertTrue(sut.hasFullDetails)
+
         // Verify the final state is from network
-        XCTAssertEqual(sut.userDetail?.login, "Network User")
+        XCTAssertEqual(sut.displayUser.login, "Network User")
     }
     
     func testLoadUserDetail_HandlesNoCacheAndNetwork() async {
@@ -78,13 +83,13 @@ final class UserDetailViewModelTests: XCTestCase {
         let networkDetail = UserDetail.mock(login: "Network User")
         mockNetworkService.userDetail = networkDetail
         
-        var userDetailUpdates: [UserDetail?] = []
+        var userDetailUpdates: [UserDisplayInfo?] = []
         
         let expectUpdates = expectation(description: "User detail updates")
         expectUpdates.expectedFulfillmentCount = 1 // Only expect network update
         
-        sut.$userDetail
-            .dropFirst() // Drop initial nil
+        sut.$displayUser
+            .dropFirst() // Drop initial user
             .sink { detail in
                 userDetailUpdates.append(detail)
                 expectUpdates.fulfill()
@@ -92,7 +97,7 @@ final class UserDetailViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
         await fulfillment(of: [expectUpdates], timeout: 1.0)
@@ -101,6 +106,7 @@ final class UserDetailViewModelTests: XCTestCase {
         XCTAssertEqual(userDetailUpdates[0]?.login, "Network User")
         XCTAssertFalse(sut.isLoading)
         XCTAssertNil(sut.error)
+        XCTAssertTrue(sut.hasFullDetails)
     }
     
     func testLoadUserDetail_HandlesCacheSuccessAndNetworkFailure() async {
@@ -109,13 +115,13 @@ final class UserDetailViewModelTests: XCTestCase {
         mockStorageService.cachedUserDetail = cachedDetail
         mockNetworkService.error = TestError.someError
         
-        var userDetailUpdates: [UserDetail?] = []
+        var userDetailUpdates: [UserDisplayInfo?] = []
         
         let expectUpdates = expectation(description: "User detail updates")
         expectUpdates.expectedFulfillmentCount = 1 // Only expect cache update
         
-        sut.$userDetail
-            .dropFirst() // Drop initial nil
+        sut.$displayUser
+            .dropFirst() // Drop initial user
             .sink { detail in
                 userDetailUpdates.append(detail)
                 expectUpdates.fulfill()
@@ -123,7 +129,7 @@ final class UserDetailViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // When
-        await sut.loadUserDetail(username: "Cached User")
+        await sut.loadUserDetail()
         
         // Then
         await fulfillment(of: [expectUpdates], timeout: 1.0)
@@ -132,25 +138,26 @@ final class UserDetailViewModelTests: XCTestCase {
         XCTAssertEqual(userDetailUpdates[0]?.login, "Cached User")
         XCTAssertFalse(sut.isLoading)
         XCTAssertNotNil(sut.error)
-        
+        XCTAssertTrue(sut.hasFullDetails)
+
         // Verify we keep the cached data even when network fails
-        XCTAssertEqual(sut.userDetail?.login, "Cached User")
+        XCTAssertEqual(sut.displayUser.login, "Cached User")
     }
     
     // MARK: - Network Tests
     func testLoadUserDetail_FetchesFromNetwork_WhenNoCacheAvailable() async {
         // Given
-        let networkDetail = UserDetail.mock(login: "test")
+        let networkDetail = UserDetail.mock(login: "Network User")
         mockNetworkService.userDetail = networkDetail
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
-        XCTAssertEqual(sut.userDetail?.login, networkDetail.login)
-        XCTAssertEqual(sut.userDetail?.id, networkDetail.id)
+        XCTAssertEqual(sut.displayUser.login, "Network User")
         XCTAssertFalse(sut.isLoading)
         XCTAssertNil(sut.error)
+        XCTAssertTrue(sut.hasFullDetails)
     }
     
     func testLoadUserDetail_SavesToCache_AfterNetworkFetch() async {
@@ -159,7 +166,7 @@ final class UserDetailViewModelTests: XCTestCase {
         mockNetworkService.userDetail = networkDetail
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
         XCTAssertEqual(mockStorageService.savedUserDetail?.login, networkDetail.login)
@@ -171,12 +178,13 @@ final class UserDetailViewModelTests: XCTestCase {
         mockNetworkService.error = TestError.someError
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
-        XCTAssertNil(sut.userDetail)
+        XCTAssertEqual(sut.displayUser.login, initialUser.login)
         XCTAssertNotNil(sut.error)
         XCTAssertFalse(sut.isLoading)
+        XCTAssertFalse(sut.hasFullDetails)
     }
     
     func testLoadUserDetail_ManagesLoadingState() async {
@@ -198,7 +206,7 @@ final class UserDetailViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
         await fulfillment(of: [loadingStates], timeout: 0.3)
@@ -214,10 +222,12 @@ final class UserDetailViewModelTests: XCTestCase {
         mockStorageService.error = TestError.someError
         
         // When
-        await sut.loadUserDetail(username: "test")
+        await sut.loadUserDetail()
         
         // Then
+        XCTAssertEqual(sut.displayUser.login, networkDetail.login)
         XCTAssertNotNil(sut.error)
         XCTAssertFalse(sut.isLoading)
+        XCTAssertTrue(sut.hasFullDetails)
     }
 }

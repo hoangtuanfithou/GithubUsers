@@ -8,55 +8,53 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    // Todo: use user object to display user while calling API to get user detail
-    let user: User
-    @StateObject private var viewModel = UserDetailViewModel()
+    @StateObject private var viewModel: UserDetailViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: UserDetailViewModel(initialUser: user))
+    }
     
     var body: some View {
         ScrollView {
-            if viewModel.isLoading {
-                ProgressView("Loading user details...")
-                    .padding()
-            } else if let userDetail = viewModel.userDetail {
-                VStack(spacing: 20) {
-                    // Profile Card
-                    UserCardView(
-                        avatarUrl: userDetail.avatarUrl,
-                        userName: userDetail.login,
-                        location: userDetail.location
-                    )
-                    
-                    // Stats Section
+            VStack(spacing: 20) {
+                // Profile Card - Always show with initial user data
+                UserCardView(
+                    avatarUrl: viewModel.displayUser.avatarUrl,
+                    userName: viewModel.displayUser.login,
+                    location: viewModel.displayUser.location
+                )
+                
+                // Stats Section - Show when full details are available
+                if viewModel.hasFullDetails {
                     HStack(spacing: 40) {
                         StatisticInfoView(
                             icon: "person.2.fill",
                             title: "Followers",
-                            count: userDetail.followers
+                            count: viewModel.displayUser.followers
                         )
                         StatisticInfoView(
                             icon: "medal.fill",
                             title: "Following",
-                            count: userDetail.following
+                            count: viewModel.displayUser.following
                         )
                     }
-                    
-                    // Landing page
-                    VStack(alignment: .leading) {
-                        Text("Blog").font(.title)
-                        Link(
-                            userDetail.htmlUrl,
-                            destination: URL(string: userDetail.htmlUrl)!
-                        ).font(.subheadline)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
                 }
-                .padding()
+                
+                // Landing page
+                BlogInfoView(
+                    blogUrl: URL(string: viewModel.displayUser.htmlUrl)!
+                )
+                
+                if viewModel.isLoading {
+                    ProgressView("Updating user details...")
+                        .padding()
+                }
             }
+            .padding()
         }
         .navigationTitle("User Detail")
         .task {
-            await viewModel.loadUserDetail(username: user.login)
+            await viewModel.loadUserDetail()
         }
         .alert("Error", isPresented: .constant(viewModel.error != nil)) {
             Button("OK") {

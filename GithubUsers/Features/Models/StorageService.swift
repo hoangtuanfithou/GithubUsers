@@ -23,6 +23,8 @@ final class StorageService: StorageServiceProtocol {
         self.timeProvider = timeProvider
     }
         
+    // MARK: - Users
+    
     func saveUsers(_ users: [User]) throws {
         let encoder = JSONEncoder()
         let data = try encoder.encode(users)
@@ -46,6 +48,8 @@ final class StorageService: StorageServiceProtocol {
         let users = try decoder.decode([User].self, from: cacheObject.data)
         return users
     }
+    
+    // MARK: - UserDetail
     
     func saveUserDetail(_ userDetail: UserDetail) throws {
         let encoder = JSONEncoder()

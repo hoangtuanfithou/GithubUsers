@@ -42,6 +42,9 @@ struct UserListView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Github Users")
+            .refreshable {
+                await viewModel.refresh()
+            }
             .task {
                 if viewModel.users.isEmpty {
                     await viewModel.loadMoreUsers()
