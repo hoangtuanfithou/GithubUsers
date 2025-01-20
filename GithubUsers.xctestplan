@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "F09D53D7-C732-41E5-BA4B-0397A530348D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GithubUsers.xcodeproj",
+      "identifier" : "C17F21F72D3B71C900DFC011",
+      "name" : "GithubUsers"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:GithubUsers.xcodeproj",
+        "identifier" : "C17F22082D3B71CA00DFC011",
+        "name" : "GithubUsersTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:GithubUsers.xcodeproj",
+        "identifier" : "C17F22122D3B71CA00DFC011",
+        "name" : "GithubUsersUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
