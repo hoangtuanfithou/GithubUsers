@@ -59,7 +59,8 @@ This mobile application allows administrators to browse a list of users from a G
   - `UserDetailViewModel`: Fetches and provides detailed information for the user detail view.
 
 ## Notes:
-The app still has room for improvement. Thank you, team, for your review 🖤
+The app still has room for improvement. 
+Thank you 🖤
 
 ## Screenshots
 ![screen recording](<Documents/Simulator Screen Recording - iPhone 16 - 2025-01-19 at 11.49.09.gif>)
